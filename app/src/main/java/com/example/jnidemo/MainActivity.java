@@ -1,15 +1,15 @@
 package com.example.jnidemo;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public native String helloFromJNI();
-    public native int    factorial(int n);
-    public native String reverseString(String s);
-    public native int    sumArray(int[] values);
+    public native boolean isDebugDetected();
+    public native String  helloFromJNI();
+    public native int     factorial(int n);
 
     static {
         System.loadLibrary("native-lib");
@@ -20,21 +20,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView tvHello   = findViewById(R.id.tvHello);
-        TextView tvFact    = findViewById(R.id.tvFact);
-        TextView tvReverse = findViewById(R.id.tvReverse);
-        TextView tvArray   = findViewById(R.id.tvArray);
+        TextView tvStatus = findViewById(R.id.tvStatus);
+        TextView tvHello  = findViewById(R.id.tvHello);
+        TextView tvFact   = findViewById(R.id.tvFact);
 
-        tvHello.setText(helloFromJNI());
+        boolean suspicious = isDebugDetected();
 
-        int fact = factorial(10);
-        tvFact.setText(fact >= 0
-                ? "Factoriel de 10 = " + fact
-                : "Erreur factoriel, code = " + fact);
+        if (suspicious) {
+            tvStatus.setText("Etat securite : environnement suspect detecte");
+            tvStatus.setTextColor(Color.RED);
+            tvHello.setText("Fonction native sensible desactivee");
+            tvFact.setText("Calcul natif bloque");
+        } else {
+            tvStatus.setText("Etat securite : OK");
+            tvStatus.setTextColor(Color.parseColor("#2E7D32"));
+            tvHello.setText(helloFromJNI());
 
-        tvReverse.setText("Texte inverse : " + reverseString("JNI is powerful!"));
-
-        int[] nombres = {10, 20, 30, 40, 50};
-        tvArray.setText("Somme du tableau = " + sumArray(nombres));
+            int fact = factorial(10);
+            tvFact.setText(fact >= 0
+                    ? "Factoriel de 10 = " + fact
+                    : "Erreur factoriel, code = " + fact);
+        }
     }
 }
