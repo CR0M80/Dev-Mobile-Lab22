@@ -14,43 +14,110 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="JNI — Securite Native"
-            android:textSize="24sp"
+            android:text="JNI Demo"
+            android:textSize="26sp"
             android:textStyle="bold"
             android:textColor="#1B3A4B"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:id="@+id/tvStatus"
+        <!-- Hello -->
+        <Button
+            android:id="@+id/btnHello"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Verification en cours..."
-            android:textSize="17sp"
-            android:gravity="center"
-            android:padding="14dp"
-            android:background="#FFFFFF"
-            android:layout_marginBottom="16dp" />
+            android:text="Appeler helloFromJNI"
+            android:backgroundTint="#1B3A4B" />
 
         <TextView
             android:id="@+id/tvHello"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="—"
-            android:textSize="16sp"
-            android:textColor="#1C1C1E"
+            android:textSize="15sp"
             android:background="#FFFFFF"
             android:padding="14dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Factoriel -->
+        <EditText
+            android:id="@+id/etFactInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrer un entier pour le factoriel"
+            android:inputType="number"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnFact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculer le factoriel"
+            android:backgroundTint="#1B3A4B" />
 
         <TextView
             android:id="@+id/tvFact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="—"
-            android:textSize="16sp"
-            android:textColor="#1C1C1E"
+            android:textSize="15sp"
             android:background="#FFFFFF"
-            android:padding="14dp" />
+            android:padding="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Reverse -->
+        <EditText
+            android:id="@+id/etReverseInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrer un texte a inverser"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnReverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inverser le texte"
+            android:backgroundTint="#1B3A4B" />
+
+        <TextView
+            android:id="@+id/tvReverse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textSize="15sp"
+            android:background="#FFFFFF"
+            android:padding="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Somme tableau -->
+        <EditText
+            android:id="@+id/etArrayInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Entrer des entiers separes par des virgules"
+            android:inputType="text"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btnArray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculer la somme"
+            android:backgroundTint="#1B3A4B" />
+
+        <TextView
+            android:id="@+id/tvArray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="—"
+            android:textSize="15sp"
+            android:background="#FFFFFF"
+            android:padding="14dp"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </ScrollView>
